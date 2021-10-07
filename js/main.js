@@ -35,43 +35,48 @@ function addBookToLibrary() {
 }
 
 function displayBooks(books) {
-  books.forEach((book) => {
-    const newBook = document.createElement('div');
-    newBook.classList.add('book');
-    //title
-    const bookTitle = document.createElement('div');
-    bookTitle.classList.add('book-title');
-    const titleTextContent = document.createElement('p');
-    titleTextContent.textContent = book['title'];
-    bookTitle.appendChild(titleTextContent);
-    newBook.appendChild(bookTitle);
+  let Bookindex;
+  for (let i = 0; i < books.length; i++) {
+    Bookindex = i;
+  }
+  const newBook = document.createElement('div');
+  newBook.classList.add('book');
+  //title
+  const bookTitle = document.createElement('div');
+  bookTitle.classList.add('book-title');
+  const titleTextContent = document.createElement('p');
+  titleTextContent.textContent = books[a]['title'];
+  bookTitle.appendChild(titleTextContent);
+  newBook.appendChild(bookTitle);
+  //author
+  const bookAuthor = document.createElement('div');
+  bookAuthor.classList.add('book-author');
+  const authorTextContent = document.createElement('p');
+  authorTextContent.textContent = books[a]['author'];
+  bookAuthor.appendChild(authorTextContent);
+  newBook.appendChild(bookAuthor);
+  //pages
+  const bookPages = document.createElement('div');
+  bookPages.classList.add('book-pages');
+  const pagesTextContent = document.createElement('p');
+  pagesTextContent.textContent = books[a]['pages'];
+  bookPages.appendChild(pagesTextContent);
+  newBook.appendChild(bookPages);
+  //status
+  const bookStatus = document.createElement('div');
+  bookStatus.classList.add('book-status');
+  const statusTextContent = document.createElement('p');
+  statusTextContent.textContent = books[a]['status'];
+  bookStatus.appendChild(statusTextContent);
+  newBook.appendChild(bookStatus);
+  //button
+  const bookButton = document.createElement('button');
+  bookButton.classList.add('book-button');
+  bookButton.setAttribute('book-index', Bookindex);
+  bookButton.textContent = 'delete book';
+  newBook.appendChild(bookButton);
 
-    //author
-    const bookAuthor = document.createElement('div');
-    bookAuthor.classList.add('book-author');
-    const authorTextContent = document.createElement('p');
-    authorTextContent.textContent = book['author'];
-    bookAuthor.appendChild(authorTextContent);
-    newBook.appendChild(bookAuthor);
-
-    //pages
-    const bookPages = document.createElement('div');
-    bookPages.classList.add('book-pages');
-    const pagesTextContent = document.createElement('p');
-    pagesTextContent.textContent = book['pages'];
-    bookPages.appendChild(pagesTextContent);
-    newBook.appendChild(bookPages);
-
-    //status
-    const bookStatus = document.createElement('div');
-    bookStatus.classList.add('book-status');
-    const statusTextContent = document.createElement('p');
-    statusTextContent.textContent = book['status'];
-    bookStatus.appendChild(statusTextContent);
-    newBook.appendChild(bookStatus);
-
-    booksContainer.appendChild(newBook);
-  });
+  booksContainer.appendChild(newBook);
 }
 
 const booksContainer = document.querySelector('.books');
@@ -82,5 +87,9 @@ const displayBook = document.querySelector('#display-book');
 addBook.addEventListener('click', (e) => {
   e.preventDefault();
   addBookToLibrary();
+});
+
+displayBook.addEventListener('click', (e) => {
+  e.preventDefault();
   displayBooks(myLibrary);
 });
