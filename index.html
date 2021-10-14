@@ -16,8 +16,14 @@
         <input type="text" placeholder="Author goes here..." id="book-author" />
         <label for="">Book pages</label>
         <input type="number" placeholder="Pages goes here..." id="book-pages" />
-        <label for="">Read yes/no</label>
-        <input type="text" placeholder="Status goes here..." id="book-status" />
+        <select name="" id="book-status">
+          <option disabled selected value>Book status</option>
+          <option value="Read">Read</option>
+          <option value="Unread">Unread</option>
+          <option value="Pending">Pending</option>
+        </select>
+        <!-- <label for="">Read yes/no</label>
+        <input type="text" placeholder="Status goes here..." id="book-status" /> -->
         <button type="submit" id="add-book">Add book</button>
         <button type="submit" id="display-book">Display book</button>
       </form>
