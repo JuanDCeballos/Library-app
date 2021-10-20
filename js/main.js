@@ -1,12 +1,10 @@
 let myLibrary = [];
 
-class Book {
-  constructor(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-  }
+function Book(title, author, pages, status) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.status = status;
 }
 
 function addBookToLibrary() {
@@ -46,12 +44,12 @@ function displayBooks(books) {
   bookPages.appendChild(pagesTextContent);
   newBook.appendChild(bookPages);
   //status
-  const bookStatus = document.createElement('div');
+  const bookStatus = document.createElement('button');
   bookStatus.classList.add('book-status');
-  const statusTextContent = document.createElement('p');
-  statusTextContent.textContent = books[bookIndex]['status'];
-  bookStatus.appendChild(statusTextContent);
+  // bookStatus.setAttribute('data-attribute', bookIndex);
+  bookStatus.textContent = books[bookIndex]['status'];
   newBook.appendChild(bookStatus);
+
   //button
   const bookButton = document.createElement('button');
   bookButton.classList.add('book-button');
@@ -61,12 +59,13 @@ function displayBooks(books) {
 
   booksContainer.appendChild(newBook);
 
+  bookStatus.addEventListener('click', toggleStatus);
   bookButton.addEventListener('click', removeBook);
 }
 
 function removeBook(e) {
   e.target.parentElement.remove();
-  myLibrary.splice(e.target, 1);
+  myLibrary.splice(e.target.getAttribute('data-attribute'), 1);
 }
 
 const booksContainer = document.querySelector('.books');
