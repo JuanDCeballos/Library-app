@@ -1,11 +1,22 @@
 let myLibrary = [];
 
+let counter = 0;
+function generateGuid() {
+  // return ++counter;
+  return counter++;
+}
+
 function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = status;
+  this.id = generateGuid();
 }
+
+Book.prototype.toggleStatus = function (status) {
+  this.status = status;
+};
 
 function addBookToLibrary() {
   let book = new Book(
@@ -44,28 +55,52 @@ function displayBooks(books) {
   bookPages.appendChild(pagesTextContent);
   newBook.appendChild(bookPages);
   //status
-  const bookStatus = document.createElement('button');
-  bookStatus.classList.add('book-status');
-  // bookStatus.setAttribute('data-attribute', bookIndex);
-  bookStatus.textContent = books[bookIndex]['status'];
-  newBook.appendChild(bookStatus);
+  const bookStatusButton = document.createElement('button');
+  bookStatusButton.classList.add('book-status');
+  bookStatusButton.value = books[bookIndex]['id'];
+  bookStatusButton.textContent = books[bookIndex]['status'];
+  newBook.appendChild(bookStatusButton);
 
   //button
-  const bookButton = document.createElement('button');
-  bookButton.classList.add('book-button');
-  bookButton.setAttribute('data-attribute', bookIndex);
-  bookButton.textContent = 'delete book';
-  newBook.appendChild(bookButton);
-
+  const bookDeleteButton = document.createElement('button');
+  bookDeleteButton.classList.add('book-button');
+  bookDeleteButton.value = books[bookIndex]['id'];
+  bookDeleteButton.textContent = 'delete book';
+  newBook.appendChild(bookDeleteButton);
   booksContainer.appendChild(newBook);
 
-  bookStatus.addEventListener('click', toggleStatus);
-  bookButton.addEventListener('click', removeBook);
+  bookDeleteButton.addEventListener('click', removeBook);
+  bookStatusButton.addEventListener('click', (e) => {
+    for (let i = 0; i < myLibrary.length; i++) {
+      let getBookStatus = myLibrary[i].status;
+      if (myLibrary[i]['id'] == e.target.value) {
+        if (getBookStatus === 'Read') {
+          bookStatusButton.textContent = 'Unread';
+          myLibrary[i].toggleStatus('Unread');
+        } else {
+          bookStatusButton.textContent = 'Read';
+          myLibrary[i].toggleStatus('Read');
+        }
+        if (getBookStatus === 'Unread') {
+          bookStatusButton.textContent = 'Read';
+          myLibrary[i].toggleStatus('Read');
+        } else {
+          bookStatusButton.textContent = 'Unread';
+          myLibrary[i].toggleStatus('Unread');
+        }
+      }
+    }
+    console.log(myLibrary);
+  });
 }
 
 function removeBook(e) {
   e.target.parentElement.remove();
-  myLibrary.splice(e.target.getAttribute('data-attribute'), 1);
+  let index = myLibrary.findIndex(function (obj) {
+    return obj.id == e.target.value;
+  });
+  if (index !== -1) myLibrary.splice(index, 1);
+  console.log(myLibrary);
 }
 
 const booksContainer = document.querySelector('.books');
