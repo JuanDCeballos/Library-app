@@ -2,7 +2,6 @@ let myLibrary = [];
 
 let counter = 0;
 function generateGuid() {
-  // return ++counter;
   return counter++;
 }
 
@@ -77,16 +76,12 @@ function displayBooks(books) {
         if (getBookStatus === 'Read') {
           bookStatusButton.textContent = 'Unread';
           myLibrary[i].toggleStatus('Unread');
+        } else if (getBookStatus === 'Unread') {
+          bookStatusButton.textContent = 'Pending';
+          myLibrary[i].toggleStatus('Pending');
         } else {
           bookStatusButton.textContent = 'Read';
           myLibrary[i].toggleStatus('Read');
-        }
-        if (getBookStatus === 'Unread') {
-          bookStatusButton.textContent = 'Read';
-          myLibrary[i].toggleStatus('Read');
-        } else {
-          bookStatusButton.textContent = 'Unread';
-          myLibrary[i].toggleStatus('Unread');
         }
       }
     }
