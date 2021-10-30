@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Library App</title>
   </head>
   <body>
     <div class="container">
-      <form action="">
+      <!-- <form action="">
         <label for="">Book title</label>
         <input type="text" placeholder="Title goes here..." id="book-title" />
         <label for="">Book author</label>
@@ -24,7 +30,29 @@
         </select>
         <button type="submit" id="add-book">Add book</button>
         <button type="submit" id="display-book">Display book</button>
-      </form>
+      </form> -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-book-reader"></i></div>
+        </div>
+        <button class="theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="profile"><a href="https://github.com/JuanDCeballos" target="_blank"
+          ><i class="fab fa-github"></a></i></div>
+      </aside>
+      <main class="main">
+        <div class="book-information">
+          <div class="library-information">
+            <h1>Library</h1>
+            <p>There are 3 books</p>
+          </div>
+          <div class="filter-option">
+            <p>Filter <span><i class="fas fa-angle-down"></i></span></p>
+          </div>
+          <button class="new-book"><span class="plus"><i class="fas fa-plus"></i></span> New</button>
+        </div>
+      </main>
     </div>
 
     <div class="books"></div>
