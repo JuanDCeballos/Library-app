@@ -98,11 +98,27 @@ function removeBook(e) {
   console.log(myLibrary);
 }
 
+// function openSidepanel() {
+//   document.getElementById('sidepanel').style.width = '100vw';
+// }
+
+// function myFunction() {
+//   let side = document.getElementById('sidepanel');
+//   if (side.style.display === 'none') {
+//     side.style.display = 'block';
+//   } else {
+//     side.style.display = 'none';
+//   }
+// }
+
 const booksContainer = document.querySelector('.books');
 const book = document.querySelector('.book');
 const addBook = document.querySelector('#add-book');
 const displayBook = document.querySelector('#display-book');
 const deleteBook = document.querySelector('.book-button');
+const btnOpenSidepanel = document.querySelector('#btnNewBook');
+const discardSidepanel = document.querySelector('#discardBtn');
+const sidepanel = document.querySelector('#sidepanel');
 
 addBook.addEventListener('click', (e) => {
   e.preventDefault();
@@ -112,4 +128,14 @@ addBook.addEventListener('click', (e) => {
 displayBook.addEventListener('click', (e) => {
   e.preventDefault();
   displayBooks(myLibrary);
+});
+
+btnOpenSidepanel.addEventListener('click', (e) => {
+  e.preventDefault();
+  sidepanel.style.width = '100vw';
+});
+
+discardSidepanel.addEventListener('click', (e) => {
+  e.preventDefault();
+  sidepanel.style.width = '0';
 });
