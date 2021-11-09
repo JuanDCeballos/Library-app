@@ -98,6 +98,10 @@ function removeBook(e) {
   console.log(myLibrary);
 }
 
+function resetForm() {
+  form.reset();
+}
+
 const booksContainer = document.querySelector('.books');
 const book = document.querySelector('.book');
 const addBook = document.querySelector('#add-book');
@@ -105,12 +109,14 @@ const deleteBook = document.querySelector('.book-button');
 const btnOpenSidepanel = document.querySelector('#btnNewBook');
 const discardSidepanel = document.querySelector('#discardBtn');
 const sidepanel = document.querySelector('#sidepanel');
+const form = document.querySelector('#form');
 
 addBook.addEventListener('click', (e) => {
   e.preventDefault();
   addBookToLibrary();
   displayBooks(myLibrary);
   sidepanel.style.width = '0';
+  resetForm();
 });
 
 btnOpenSidepanel.addEventListener('click', (e) => {
