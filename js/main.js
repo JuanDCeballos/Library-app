@@ -60,11 +60,20 @@ function displayBooks(books) {
   bookStatusButton.textContent = books[bookIndex]['status'];
   newBook.appendChild(bookStatusButton);
 
+  if (books[bookIndex]['status'] === 'Read') {
+    bookStatusButton.className = 'read';
+  } else if (books[bookIndex]['status'] === 'Unread') {
+    bookStatusButton.className = 'unread';
+  } else if (books[bookIndex]['status'] === 'Pending') {
+    bookStatusButton.className = 'pending';
+  }
+
   //button
   const bookDeleteButton = document.createElement('button');
   bookDeleteButton.classList.add('book-button');
   bookDeleteButton.value = books[bookIndex]['id'];
   bookDeleteButton.textContent = 'delete book';
+  // bookDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
   newBook.appendChild(bookDeleteButton);
   booksContainer.appendChild(newBook);
 
@@ -76,12 +85,15 @@ function displayBooks(books) {
         if (getBookStatus === 'Read') {
           bookStatusButton.textContent = 'Unread';
           myLibrary[i].toggleStatus('Unread');
+          bookStatusButton.className = 'unread';
         } else if (getBookStatus === 'Unread') {
           bookStatusButton.textContent = 'Pending';
           myLibrary[i].toggleStatus('Pending');
-        } else {
+          bookStatusButton.className = 'pending';
+        } else if (getBookStatus === 'Pending') {
           bookStatusButton.textContent = 'Read';
           myLibrary[i].toggleStatus('Read');
+          bookStatusButton.className = 'read';
         }
       }
     }
@@ -106,25 +118,30 @@ const booksContainer = document.querySelector('.books');
 const book = document.querySelector('.book');
 const addBook = document.querySelector('#add-book');
 const deleteBook = document.querySelector('.book-button');
-const btnOpenSidepanel = document.querySelector('#btnNewBook');
-const discardSidepanel = document.querySelector('#discardBtn');
-const sidepanel = document.querySelector('#sidepanel');
+const btnOpenModal = document.querySelector('#btnNewBook');
+const discardBookCloseModal = document.querySelector('#discardBtn');
+const modal = document.querySelector('#myModal');
 const form = document.querySelector('#form');
 
 addBook.addEventListener('click', (e) => {
   e.preventDefault();
   addBookToLibrary();
   displayBooks(myLibrary);
-  sidepanel.style.width = '0';
+  modal.style.display = 'none';
   resetForm();
 });
 
-btnOpenSidepanel.addEventListener('click', (e) => {
-  e.preventDefault();
-  sidepanel.style.width = '100vw';
+btnOpenModal.addEventListener('click', () => {
+  modal.style.display = 'block';
 });
 
-discardSidepanel.addEventListener('click', (e) => {
+discardBookCloseModal.addEventListener('click', (e) => {
   e.preventDefault();
-  sidepanel.style.width = '0';
+  modal.style.display = 'none';
 });
+
+window.onclick = function (e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+};
