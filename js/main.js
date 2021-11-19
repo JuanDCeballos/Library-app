@@ -61,18 +61,18 @@ function displayBooks(books) {
   newBook.appendChild(bookStatusButton);
 
   if (books[bookIndex]['status'] === 'Read') {
-    bookStatusButton.className = 'read';
+    bookStatusButton.className = 'read btn';
   } else if (books[bookIndex]['status'] === 'Unread') {
-    bookStatusButton.className = 'unread';
+    bookStatusButton.className = 'unread btn';
   } else if (books[bookIndex]['status'] === 'Pending') {
-    bookStatusButton.className = 'pending';
+    bookStatusButton.className = 'pending btn';
   }
 
   //button
   const bookDeleteButton = document.createElement('button');
   bookDeleteButton.classList.add('book-button');
   bookDeleteButton.value = books[bookIndex]['id'];
-  bookDeleteButton.textContent = 'delete book';
+  bookDeleteButton.textContent = 'Delete';
   // bookDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
   newBook.appendChild(bookDeleteButton);
   booksContainer.appendChild(newBook);
@@ -85,15 +85,15 @@ function displayBooks(books) {
         if (getBookStatus === 'Read') {
           bookStatusButton.textContent = 'Unread';
           myLibrary[i].toggleStatus('Unread');
-          bookStatusButton.className = 'unread';
+          bookStatusButton.className = 'unread btn';
         } else if (getBookStatus === 'Unread') {
           bookStatusButton.textContent = 'Pending';
           myLibrary[i].toggleStatus('Pending');
-          bookStatusButton.className = 'pending';
+          bookStatusButton.className = 'pending btn';
         } else if (getBookStatus === 'Pending') {
           bookStatusButton.textContent = 'Read';
           myLibrary[i].toggleStatus('Read');
-          bookStatusButton.className = 'read';
+          bookStatusButton.className = 'read btn';
         }
       }
     }
