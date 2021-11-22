@@ -114,6 +114,7 @@ function resetForm() {
   form.reset();
 }
 
+const toggleButtonTheme = document.querySelector('#theme');
 const booksContainer = document.querySelector('.books');
 const book = document.querySelector('.book');
 const addBook = document.querySelector('#add-book');
@@ -122,6 +123,25 @@ const btnOpenModal = document.querySelector('#btnNewBook');
 const discardBookCloseModal = document.querySelector('#discardBtn');
 const modal = document.querySelector('#myModal');
 const form = document.querySelector('#form');
+const libraryBooks = document.querySelector('#library-books');
+
+// libraryBooks.textContent = `There are ${myLibrary.length} books`;
+
+toggleButtonTheme.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+
+  if (document.body.classList.contains('dark')) {
+    localStorage.setItem('dark-mode', 'true');
+  } else {
+    localStorage.setItem('dark-mode', 'false');
+  }
+});
+
+if (localStorage.getItem('dark-mode') === 'true') {
+  document.body.classList.add('dark');
+} else {
+  document.body.classList.remove('dark');
+}
 
 addBook.addEventListener('click', (e) => {
   e.preventDefault();
@@ -145,3 +165,32 @@ window.onclick = function (e) {
     modal.style.display = 'none';
   }
 };
+
+// if (!localStorage.getItem('libraryArray')) {
+//   populateStorage();
+// } else {
+//   // setBooks();
+// }
+
+// window.onload = () => {
+//   if (!localStorage.getItem('libraryArray')) {
+//     populateStorage();
+//   } else {
+//     setBooks();
+//   }
+// };
+
+// function populateStorage() {
+//   localStorage.setItem('libraryArray', JSON.stringify(myLibrary));
+//   console.log(JSON.stringify(myLibrary));
+//   setBooks();
+// }
+
+// function setBooks() {
+//   let currentLibraryArray = JSON.parse(localStorage.getItem('libraryArray'));
+//   // if (currentLibraryArray.length === 0) {
+//   // console.log('a');
+//   // } else {
+//   displayBooks(currentLibraryArray);
+//   // }
+// }
