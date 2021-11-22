@@ -73,7 +73,6 @@ function displayBooks(books) {
   bookDeleteButton.classList.add('book-button');
   bookDeleteButton.value = books[bookIndex]['id'];
   bookDeleteButton.textContent = 'Delete';
-  // bookDeleteButton.innerHTML = '<i class="fas fa-trash"></i>';
   newBook.appendChild(bookDeleteButton);
   booksContainer.appendChild(newBook);
 
@@ -165,32 +164,3 @@ window.onclick = function (e) {
     modal.style.display = 'none';
   }
 };
-
-// if (!localStorage.getItem('libraryArray')) {
-//   populateStorage();
-// } else {
-//   // setBooks();
-// }
-
-// window.onload = () => {
-//   if (!localStorage.getItem('libraryArray')) {
-//     populateStorage();
-//   } else {
-//     setBooks();
-//   }
-// };
-
-// function populateStorage() {
-//   localStorage.setItem('libraryArray', JSON.stringify(myLibrary));
-//   console.log(JSON.stringify(myLibrary));
-//   setBooks();
-// }
-
-// function setBooks() {
-//   let currentLibraryArray = JSON.parse(localStorage.getItem('libraryArray'));
-//   // if (currentLibraryArray.length === 0) {
-//   // console.log('a');
-//   // } else {
-//   displayBooks(currentLibraryArray);
-//   // }
-// }
