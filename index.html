@@ -15,27 +15,37 @@
   </head>
   <body>
     <div class="container">
-      <!-- <form action="">
-        <label for="">Book title</label>
-        <input type="text" placeholder="Title goes here..." id="book-title" />
-        <label for="">Book author</label>
-        <input type="text" placeholder="Author goes here..." id="book-author" />
-        <label for="">Book pages</label>
-        <input type="number" placeholder="Pages goes here..." id="book-pages" />
-        <select name="" id="book-status">
-          <option disabled selected value>Book status</option>
-          <option value="Read">Read</option>
-          <option value="Unread">Unread</option>
-          <option value="Pending">Pending</option>
-        </select>
-        <button type="submit" id="add-book">Add book</button>
-        <button type="submit" id="display-book">Display book</button>
-      </form> -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <form action="" id="form" class="">
+            <div class="options">
+              <h1 class="sidepanel-title">Create book</h1>
+              <label for="book-title" class="input-title">Book title</label>
+              <input type="text" placeholder="Title goes here..." id="book-title" class="input" required/>
+              <label for="book-author" class="input-title">Book author</label>
+              <input type="text" placeholder="Author goes here..." id="book-author" class="input" required/>
+              <label for="book-pages" class="input-title">Book pages</label>
+              <input type="number" placeholder="Pages goes here..." id="book-pages" class="input" min="3" required/>
+              <label for="book-status" class="input-title">Book status</label>
+              <select name="" id="book-status" class="select-book-status" required>
+                <option disabled selected value>Book status</option>
+                <option value="Read">Read</option>
+                <option value="Unread">Unread</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <div class="btns">
+              <button class="discard-book-btn" id="discardBtn">Discard</button>
+              <button type="submit" id="add-book" class="add-book-btn">Add book</button>
+            </div>
+          </form>
+        </div>
+      </div>
       <aside class="sidebar">
         <div class="logo">
           <div class="logo-icon"><i class="fas fa-book-reader"></i></div>
         </div>
-        <button class="theme">
+        <button class="theme" id="theme">
           <i class="fas fa-moon"></i>
         </button>
         <div class="profile"><a href="https://github.com/JuanDCeballos" target="_blank"
@@ -45,17 +55,16 @@
         <div class="book-information">
           <div class="library-information">
             <h1>Library</h1>
-            <p>There are 3 books</p>
+            <p id="library-books"></p>
           </div>
           <div class="filter-option">
-            <p>Filter <span><i class="fas fa-angle-down"></i></span></p>
+            <p>Filter by <span><i class="fas fa-angle-down"></i></span></p>
           </div>
-          <button class="new-book"><span class="plus"><i class="fas fa-plus"></i></span> New</button>
+          <button class="new-book-btn" id="btnNewBook"><span class="plus"><i class="fas fa-plus-circle"></i></span>New</button>
         </div>
+        <div class="books"></div>
       </main>
     </div>
-
-    <div class="books"></div>
     <script src="js/main.js"></script>
   </body>
 </html>
