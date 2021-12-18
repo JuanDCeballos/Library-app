@@ -5,17 +5,31 @@ function generateGuid() {
   return counter++;
 }
 
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  this.id = generateGuid();
-}
+// function Book(title, author, pages, status) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.status = status;
+//   this.id = generateGuid();
+// }
 
-Book.prototype.toggleStatus = function (status) {
-  this.status = status;
-};
+// Book.prototype.toggleStatus = function (status) {
+//   this.status = status;
+// };
+
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+    this.id = generateGuid();
+  }
+
+  toggleStatus(status) {
+    this.status = status;
+  }
+}
 
 function addBookToLibrary() {
   let book = new Book(
