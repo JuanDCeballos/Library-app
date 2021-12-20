@@ -14,7 +14,7 @@ class Book {
     this.id = generateGuid();
   }
 
-  toggleStatus(status) {
+  set toggleStatus(status) {
     this.status = status;
   }
 }
@@ -85,15 +85,15 @@ function displayBooks(books) {
       if (myLibrary[i]['id'] == e.target.value) {
         if (getBookStatus === 'Read') {
           bookStatusButton.textContent = 'Unread';
-          myLibrary[i].toggleStatus('Unread');
+          myLibrary[i].toggleStatus = 'Unread';
           bookStatusButton.className = 'unread btn';
         } else if (getBookStatus === 'Unread') {
           bookStatusButton.textContent = 'Pending';
-          myLibrary[i].toggleStatus('Pending');
+          myLibrary[i].toggleStatus = 'Pending';
           bookStatusButton.className = 'pending btn';
         } else if (getBookStatus === 'Pending') {
           bookStatusButton.textContent = 'Read';
-          myLibrary[i].toggleStatus('Read');
+          myLibrary[i].toggleStatus = 'Read';
           bookStatusButton.className = 'read btn';
         }
       }
