@@ -9,10 +9,10 @@ The idea of this project came from [The Odin Project] (https://www.theodinprojec
 Things I learn while I was doing this project:
 
 ```
-I learn a lot about `Objects and object constructors` work
-I learn about `prototype` works
-I learn abut `mobile-first` approach to make my library responsive
-I learn about `localStorage`
+I learn a lot about **Objects and object constructors**
+I learn about how **prototypes** works.
+I learn abut **mobile-first approach** to make my library responsive.
+And much more.
 ```
 
 # Features
