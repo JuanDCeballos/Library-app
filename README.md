@@ -4,7 +4,7 @@ This library app was made with the purpouse to track your books.
 
 # Motivation
 
-The idea of this project came from [The Odin Project] (https://www.theodinproject.com/)
+The idea of this project came from [The Odin Project](https://www.theodinproject.com/)
 
 Things I learn while I was doing this project:
 
