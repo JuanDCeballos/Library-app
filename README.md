@@ -9,9 +9,9 @@ The idea of this project came from [The Odin Project] (https://www.theodinprojec
 Things I learn while I was doing this project:
 
 ```
-I learn a lot about **Objects and object constructors**
-I learn about how **prototypes** works.
-I learn abut **mobile-first approach** to make my library responsive.
+I learn a lot about Objects and object constructors.
+I learn about how prototypes works.
+I learn abut mobile-first approach to make my library responsive.
 And much more.
 ```
 
@@ -32,5 +32,7 @@ You can have books as a `Read`, `Unread` and `Pending`
   ![normal-mode](images/normal.png)
 
 # Credits
+
+For the design, I got some inspiration from [Frontend Mentor](https://www.frontendmentor.io/)
 
 Made with love by me (and too much effort).
