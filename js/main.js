@@ -126,8 +126,6 @@ const modal = document.querySelector('#myModal');
 const form = document.querySelector('#form');
 const libraryBooks = document.querySelector('#library-books');
 
-// libraryBooks.textContent = `There are ${myLibrary.length} books`;
-
 toggleButtonTheme.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 
